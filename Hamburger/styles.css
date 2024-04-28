@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/*maco contenedor*/
+.nav-toggle {
+    border-radius: 50%; /*forma de circulo*/
+    border: 0;
+    padding: 0;
+    height: 3em;
+    width: 3em;
+    color: white;
+    background-color: black;
+    transition: all 250ms ease;
+    position: absolute;
+    left: 50%;
+}
+
+.nav-toggle:hover {
+    opacity: 0.75;
+}
+
+/*Es la hamburguesa*/
+.hamburger {
+    width: 50%;
+    position: relative;
+    margin: 10px auto;
+}
+
+/*Creo los 3 palitos para la hamburguesa*/
+.hamburger,
+.hamburger::after,
+.hamburger::before {
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    background-color: white;
+    transition: all 250ms ease;
+}
+
+.hamburger::after,
+.hamburger::before {
+    content: " ";
+    width: 100%;
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+/*cuando le hago focus(click), el elemento del medio y el de arriba rotan, el de abajo desaparece*/
+.nav-toggle:focus .hamburger{
+    transform: rotate(45deg);
+}
+
+.nav-toggle:focus .hamburger::after{
+    width: 0%;
+}
+
+.nav-toggle:focus .hamburger::before{
+    transform: rotate(90deg);
+}
