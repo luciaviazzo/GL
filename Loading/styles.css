@@ -1,0 +1,106 @@
+.loader {
+    /*cuadrado que se transforma en circulo*/
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    /*creo un borde, le doy grosor y el contenido igual*/
+    border: 16px solid rgb(221, 216, 216);
+    border-top: 16px solid rgb(43, 183, 230);
+
+    /*animacion*/
+    animation: spin 2s linear infinite;
+
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.loading-spinner-dot {
+    width: 120px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    aspect-ratio: 1 / 1;
+    background-color: goldenrod;
+    border-radius: 50%;
+    animation: scale-loader 2s infinite linear 0s;
+}
+
+/*Ubico los puntos hijos y los configuro*/
+.loading-spinner-dot :nth-child(1) {
+    top: 27%;
+    animation-delay: 0s;
+}
+
+.loading-spinner-dot :nth-child(2) {
+    top: 35%;
+    right: 32%;
+    animation-delay: 0.25s;
+}
+
+.loading-spinner-dot :nth-child(3) {
+    top: 50%;
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+.loading-spinner-dot :nth-child(4) {
+    top: 65%;
+    right: 32%;
+    animation-delay: 0.75s;
+}
+
+.loading-spinner-dot :nth-child(5) {
+    top: 73%;
+    animation-delay: 1s;
+}
+
+.loading-spinner-dot :nth-child(6) {
+    top: 65%;
+    right: 63%;
+    animation-delay: 1.25s;
+}
+
+.loading-spinner-dot :nth-child(7) {
+    top: 50%;
+    right: 70%;
+    animation-delay: 1.5s;
+}
+
+.loading-spinner-dot :nth-child(8) {
+    top: 35%;
+    right: 63%;
+    animation-delay: 1.75s;
+}
+
+@keyframes scale-loader {
+    from {
+        scale: 1;
+        background-color: goldenrod;
+    }
+    50% {
+        scale: 2.2;
+        background-color: crimson;
+    }
+    to {
+        scale: 1;
+        background-color: goldenrod;
+    }
+}
