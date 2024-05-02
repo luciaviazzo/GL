@@ -7,13 +7,20 @@
     <title>Modal Window</title>
 </head>
 <body>
-    <button id="open"> Open Window</button>
-    <div class="modal">
-        <span>X</span>
-        <p> Do you agree to subscribe?</p>
-        <button id="confirm">Confirm</button>
-        <button id="cancel">Cancel</button>
+    <div class="page">
+        <a href="#" id="openBtn" class="button">Open Window</a>
+    </div>
+    <div class="contanier">
+        <div class="modal" id="modal">
+            <span id="closeBtn">X</span>
+            <p> Do you agree to subscribe?</p>
+            <div class="button">
+               <button id="confirmBtn">Confirm</button>
+            <button id="cancelBtn">Cancel</button> 
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
