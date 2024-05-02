@@ -6,7 +6,7 @@
 
     /*creo un borde, le doy grosor y el contenido igual*/
     border: 16px solid rgb(221, 216, 216);
-    border-top: 16px solid rgb(43, 183, 230);
+    border-top: 16px solid rgb(216, 90, 185);
 
     /*animacion*/
     animation: spin 2s linear infinite;
