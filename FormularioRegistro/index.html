@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registrationForm" novalidate> 
+            <div class="form-group">
+                <label for="firstname">Name:</label> 
+                <input type="text" id="firstname" placeholder="First name..." required> 
+            </div>
+            <div class="form-group">
+                <label for="lastname">Surname:</label> 
+                <input type="text" id="lastname" placeholder="Last name..." required> 
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Username..." required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Password..." required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm password:</label> 
+                <input type="password" id="confirm_password" placeholder="Password..." required> 
+            </div>
+            <div class="form-group">
+                <label for="birthday">Date of birthday:</label>
+                <input type="date" id="birthday" placeholder="Date of birthday..." required>
+            </div>
+            <div class="form-group">
+                <label for="newsletter">Subscribe to the newsletter</label>
+                <input type="checkbox" id="newsletter" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
