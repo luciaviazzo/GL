@@ -1,0 +1,17 @@
+{
+  "name": "first-server",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.19.2"
+  }
+}
