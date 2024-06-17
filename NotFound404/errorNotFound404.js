@@ -23,4 +23,4 @@ app.listen(port, () => {
   console.log(`Servidor funcionando en http://localhost:${port}`);
 });
 
-//Pruebo en http://localhost:3000/una-ruta-que-no-existe
+//Pruebo en http://localhost:3000/otra-ruta
