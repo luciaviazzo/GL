@@ -1,26 +1,26 @@
-const net = require('node:net');
+const net = require('node:net')
 
-function findAvailablePort(desiredPort) {
-    return new Promise((resolve, reject) => {
-        const server = net.createServer();
+function findAvailablePortd(desiredPort) {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer()
 
-        server.listen(desiredPort, () => {
-            const { port } = server.address();
-            server.close(() => {
-                resolve(port);
-            });
-        });
+    server.listen(desiredPort, () => {
+      const { port } = server.address()
+      server.close(() => {
+        resolve(port)
+      })
+    })
 
-        server.on('error', (err) => {
-            if (err.code === 'EADDRINUSE') {
-                server.close(() => {
-                    findAvailablePort(0).then(resolve).catch(reject);
-                });
-            } else {
-                reject(err);
-            }
-        });
-    });
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        server.close(() => {
+          findAvailablePort(0).then(resolve).catch(reject)
+        })
+      } else {
+        reject(err)
+      }
+    })
+  })
 }
 
-module.exports = { findAvailablePort };
+module.exports = { findAvailablePort }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "http.js",
   "scripts": {
-    "dev": "node --watch http.js",
+    "dev:1": "node --watch http.js",
+    "dev:2": "node --watch routing.js",
     "start": "node http.js"
   },
   "keywords": [],
