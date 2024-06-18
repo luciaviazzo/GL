@@ -1,29 +1,22 @@
-const http = require('node:http') //protocolo HTTP
-const { findAvailablePort } = require('./free-port')
+const http = require('node:http')
 
-//Importo mi json (arreglo con obras)
-const dittoJSON = require('./pokemon/ditto.json') 
+// commonJS -> modulos clásicos de node
+const dittoJSON = require('./pokemon/ditto.json')
 
-console.log(process.env)
-
-const desiredPort = process.env.PORT ?? 3000
-
-
-//Procesar la request
 const processRequest = (req, res) => {
-  //De cada request sacamos method y urlç
-  const {method, url} = req
+  const { method, url } = req
 
   switch (method) {
     case 'GET':
       switch (url) {
-        case '/pokemon/ditto': //entro a la carpeta de json
+        case '/pokemon/ditto':
+
           res.setHeader('Content-Type', 'application/json; charset=utf-8')
-          return res.end(JSON.stringify(dittoJSON)) //lo transforma en string
+          return res.end(JSON.stringify(dittoJSON))
         default:
           res.statusCode = 404
-          res.setHeader('Content-Type', 'text/html; charset=utf-8') //html
-          return res.end('<h1>404</h1>') //error
+          res.setHeader('Content-Type', 'text/html; charset=utf-8')
+          return res.end('<h1>404</h1>')
       }
 
     case 'POST':
@@ -47,6 +40,7 @@ const processRequest = (req, res) => {
 
           break
         }
+
         default:
           res.statusCode = 404
           res.setHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -55,12 +49,8 @@ const processRequest = (req, res) => {
   }
 }
 
-//Crear el servidor
 const server = http.createServer(processRequest)
 
-//Encuentra el puerto y escuha la request
-findAvailablePort(desiredPort).then(port => {
-  server.listen(port, () => {
-    console.log(`server listening on port http://localhost:${port}`)
-  })
+server.listen(1234, () => {
+  console.log('server listening on port http://localhost:1234')
 })

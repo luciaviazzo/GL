@@ -1,11 +1,7 @@
 const http = require('node:http') // protocolo HTTP
-const { findAvailablePort } = require('./free-port')
 const fs = require('node:fs')
 
-
-console.log(process.env)
-
-const desiredPort = process.env.PORT ?? 3000
+const desiredPort = process.env.PORT ?? 1234
 
 const processRequest = (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
@@ -32,8 +28,6 @@ const processRequest = (req, res) => {
 
 const server = http.createServer(processRequest)
 
-findAvailablePort(desiredPort).then(port => {
-  server.listen(port, () => {
-    console.log(`server listening on port http://localhost:${port}`)
-  })
+server.listen(desiredPort, () => {
+  console.log(`server listening on port http://localhost:${desiredPort}`)
 })
