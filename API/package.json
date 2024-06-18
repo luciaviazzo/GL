@@ -6,6 +6,7 @@
   "scripts": {
     "dev:1": "node --watch http.js",
     "dev:2": "node --watch routing.js",
+    "dev:3": "node --watch express.js",
     "start": "node http.js"
   },
   "keywords": [],
