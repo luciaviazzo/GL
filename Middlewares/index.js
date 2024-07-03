@@ -12,9 +12,6 @@ const app = express();
 const port = 3002;
 const httpServer = http.createServer(app);
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
 //Middleware para registrar el tiempo de demora de una solicitud HTTP
 app.use((req, res, next) => {
   const start = Date.now();
@@ -40,12 +37,12 @@ app.use((req, res, next) => {
 
 //Ruta correcta
 app.get('/', (_req, res) => {
-  res.send('<h1>WELCOME</h1>');
+  return res.send('<h1>WELCOME</h1>');
 });
 
 //Rutas inexistentes
-app.use((req, res) => {
-  res.status(404).send('<h1>404 NOT FOUND</h1>');
+app.use((_req, res) => {
+  return res.status(404).send('<h1>404 NOT FOUND</h1>');
 });
 
 //Inicio del servidor
