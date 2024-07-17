@@ -26,6 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then((data) => {
+                if (data.message == 'Invalid credentials') {
+                    return alert(data.message)
+                }
                 window.localStorage.setItem('token', data.token)
                 window.location.href = '/pages/admin.html'
             })
