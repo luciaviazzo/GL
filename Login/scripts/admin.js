@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
         const token = window.localStorage.getItem('token')
 
-        fetch('http://localhost:300/api/paintings', {
+        fetch('http://localhost:3000/api/paintings', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`

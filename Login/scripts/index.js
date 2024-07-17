@@ -17,10 +17,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
         //Manda la peticion a la url
         //Manda el header y el body con la data (email y password)
-        fetch('http://localhost:3000/api/paintings', {
+        fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application.json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
