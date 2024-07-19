@@ -1,32 +1,44 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
+//Cuando hay un cambio se rereneriza el componente
+//Los unicos valores que se guardan son los que son un estado 
 function App() {
-  let abortController
 
-  fetchData()
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  const fetchData = async () => {
-    abortController = new AbortController()
+  const abortControllerRef = useRef(null)
 
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        signal: abortController.signal
-      })
+  //Para indicar que el efecto se lanza cuando se monta el componete se pone []
+  useEffect(() => {
 
-      if (!response.ok) {
-        console.log('Error al realizar la solicitud')
-        return
+    const fetchData = async () => {
+
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+          signal: abortController.signal //Controla cuando cancelar la transaccion
+        })
+
+        if (!response.ok) {
+          console.log('Error al realizar la solicitud')
+          return
+        }
+        const data = await response.json()
+
+        setData(response)
+      } catch (error) {
+        console.error('Error al realizar la solicitud:', error.message)
+        setError('Error al cargar los datos. Por favor, intenta nuevamente.')
+      } finally {
+        setIsLoading(false)
       }
-
-      setData(response)
-    } catch (error) {
-      console.error('Error al realizar la solicitud:', error.message)
-      setError('Error al cargar los datos. Por favor, intenta nuevamente.')
-    } finally {
-      setIsLoading(false)
     }
-  }
+  },[])
+
+
+
 
   return (
     <div>
